@@ -7,7 +7,7 @@ include 'koneksi.php';
 		$sample_terima		= $_POST['sample_terima'];
 		$sisa_sample		= $_POST['sisa_saldo'];
 
-		$kemarin = date($tanggal_kegiatan,strtotime('- 1 DAY'));
+		$kemarin = date('Y-m-d', strtotime('-1 day', strtotime($tanggal_kegiatan)));
 		$get = "SELECT * FROM input_sample1 where tanggal = '$kemarin'";
     	$q = mysqli_query($kon, $get);
 		$data = mysqli_fetch_assoc($q);
@@ -27,6 +27,7 @@ include 'koneksi.php';
 			$jml_periksa = $hrs_diperiksa;
 			$sisasample = 0;
 		}
+		// print_r($kemarin);exit();
 
 $insert  = mysqli_query($kon,"INSERT INTO input_sample1 (tanggal, jumlah_modul, sample_periksa, harus_periksa, sample_terima, sisa_sample) VALUES ('$tanggal_kegiatan','$jumlah_modul','$jml_periksa','$hrs_diperiksa','$sample_terima','$sisasample')");
 
