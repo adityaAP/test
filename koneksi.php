@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $hostname = "localhost";
 $database = "tcm";
 $username = "root";

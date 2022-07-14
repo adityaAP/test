@@ -1,3 +1,5 @@
+<?php 				include "koneksi.php";
+ ?>
 <!DOCTYPE html>
 <html lang="en">
   
@@ -193,9 +195,9 @@
             </tr>
           </thead>
 			<?php
-				include "koneksi.php";
 					$no = 1;
-					$query = mysqli_query($kon, 'SELECT * FROM input_sample1');
+          $iduser = $_SESSION['id'];
+					$query = mysqli_query($kon, "SELECT * FROM input_sample1 where user_id = '$iduser' ");
 					while ($data = mysqli_fetch_array($query)) {
 						?>
 					<tr>

@@ -10,6 +10,7 @@ $query = mysqli_query($kon, "SELECT * FROM users WHERE username='$username' AND 
 	if (mysqli_num_rows($query) > 0) {
 		$data = mysqli_fetch_assoc($query);
 		$_SESSION['username'] = $data['username'];
+		$_SESSION['id'] = $data['id'];
 		header("Location:dashboard.php");
 	} else {
 		$_SESSION['login_gagal'] = "username dan password salah" ;
